@@ -6,6 +6,7 @@ module "lambda_function_hello" {
   function_name = "app-responder"
   handler       = "app.handler"
   runtime       = "python3.9"
+  create_sam_metadata = true
   publish       = true
   allowed_triggers = {
     APIGatewayAny = {
@@ -24,10 +25,10 @@ module "lambda_function_auth" {
   handler       = "app.handler"
   runtime       = "python3.9"
   publish       = true
-  allowed_triggers = {
-    APIGatewayAny = {
-      service    = "apigateway"
-      source_arn = "arn:aws:execute-api:${local.region}:${local.account_id}:${aws_api_gateway_rest_api.api.id}/*/*/*"
-    }
-  }
+  # allowed_triggers = {
+  #   APIGatewayAny = {
+  #     service    = "apigateway"
+  #     source_arn = "arn:aws:execute-api:${local.region}:${local.account_id}:${aws_api_gateway_rest_api.api.id}/*/*/*"
+  #   }
+  # }
 }
