@@ -11,7 +11,7 @@ module "lambda_function_hello" {
   allowed_triggers = {
     APIGatewayAny = {
       service    = "apigateway"
-      source_arn = "arn:aws:execute-api:${local.region}:${local.account_id}:${aws_api_gateway_rest_api.api.id}/*/*/*"
+      source_arn = "${aws_api_gateway_rest_api.api.execution_arn}/*/*"
     }
   }
 }
@@ -24,7 +24,8 @@ module "lambda_function_auth" {
   function_name = "authorizer"
   handler       = "app.handler"
   runtime       = "python3.9"
-  publish       = true
+  create_sam_metadata = true
+  # publish       = true
   # allowed_triggers = {
   #   APIGatewayAny = {
   #     service    = "apigateway"
