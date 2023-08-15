@@ -1,7 +1,7 @@
 import json
 import re
 
-def auth_handler(event, context):
+def handler(event, context):
     principalId = "user|a1b2c3d4"
     arn = event.get("methodArn") or event.get("routeArn")
     tmp = arn.split(':')
