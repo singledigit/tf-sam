@@ -49,7 +49,7 @@ resource "aws_api_gateway_integration" "open_integration" {
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
   content_handling        = "CONVERT_TO_TEXT"
-  uri                     = module.lambda_function_hello.lambda_function_invoke_arn
+  uri                     = module.lambda_function_responder.lambda_function_invoke_arn
 }
 
 #######################################
@@ -77,16 +77,17 @@ resource "aws_api_gateway_integration" "secure_integration" {
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
   content_handling        = "CONVERT_TO_TEXT"
-  uri                     = module.lambda_function_hello.lambda_function_invoke_arn
+  uri                     = module.lambda_function_responder.lambda_function_invoke_arn
 }
 
 resource "aws_api_gateway_authorizer" "token_authorizer" {
-  name           = "token_authorizer"
-  rest_api_id    = aws_api_gateway_rest_api.api.id
-  authorizer_uri = module.lambda_function_auth.lambda_function_invoke_arn
-  authorizer_credentials = aws_iam_role.invocation_role.arn
-  identity_source = "method.request.header.myheader"
-  # identity_validation_expression = "^123$"
+  name                             = "token_authorizer"
+  rest_api_id                      = aws_api_gateway_rest_api.api.id
+  authorizer_uri                   = module.lambda_function_auth.lambda_function_invoke_arn
+  authorizer_credentials           = aws_iam_role.invocation_role.arn
+  identity_source                  = "method.request.header.myheader"
+  authorizer_result_ttl_in_seconds = 0
+  identity_validation_expression   = "^123$"
 }
 
 data "aws_iam_policy_document" "invocation_assume_role" {
