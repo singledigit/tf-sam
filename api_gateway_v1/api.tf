@@ -19,10 +19,18 @@ resource "aws_api_gateway_deployment" "deployment" {
   }
 }
 
+resource "aws_cloudwatch_log_group" "logs" {
+  name = "/aws/vendedlogs/tf_rest_logs"
+}
+
 resource "aws_api_gateway_stage" "stage" {
   deployment_id = aws_api_gateway_deployment.deployment.id
   rest_api_id   = aws_api_gateway_rest_api.api.id
   stage_name    = "prod"
+  access_log_settings {
+    destination_arn = aws_cloudwatch_log_group.logs.arn
+    format = jsonencode({"requestId":"$context.requestId", "ip":"$context.identity.sourceIp", "requestTime":"$context.requestTime", "httpMethod":"$context.httpMethod","routeKey":"$context.routeKey", "status":"$context.status","protocol":"$context.protocol", "responseLength":"$context.responseLength", "integrationError":"$context.integrationErrorMessage" })
+  }
 }
 
 #######################################

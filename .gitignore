@@ -41,3 +41,4 @@ builds
 .terraform
 .aws-sam
 .aws-sam-iacs
+.terraform.lock.hcl
