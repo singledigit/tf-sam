@@ -112,7 +112,7 @@ data "aws_iam_policy_document" "invocation_policy" {
   statement {
     effect    = "Allow"
     actions   = ["lambda:InvokeFunction"]
-    resources = [module.lambda_function_auth.lambda_function_invoke_arn]
+    resources = [module.lambda_function_auth.lambda_function_arn]
   }
 }
 
