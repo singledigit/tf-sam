@@ -3,3 +3,4 @@ default:
   global:
     parameters:
       hook_name: terraform
+      skip_prepare_infra: true
