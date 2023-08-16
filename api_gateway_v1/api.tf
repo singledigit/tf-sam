@@ -94,8 +94,8 @@ resource "aws_api_gateway_authorizer" "token_authorizer" {
   authorizer_uri                   = module.lambda_function_auth.lambda_function_invoke_arn
   authorizer_credentials           = aws_iam_role.invocation_role.arn
   identity_source                  = "method.request.header.myheader"
-  authorizer_result_ttl_in_seconds = 0
-  identity_validation_expression   = "^123$"
+  authorizer_result_ttl_in_seconds = 0 # for testing only, caching should be added for production
+  identity_validation_expression   = "^[0-9]+$"
 }
 
 data "aws_iam_policy_document" "invocation_assume_role" {

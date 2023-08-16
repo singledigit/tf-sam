@@ -12,8 +12,10 @@ def handler(event, context):
     policy.restApiId = apiGatewayArnTmp[0]
     policy.region = tmp[3]
     policy.stage = apiGatewayArnTmp[1]
-    # policy.denyAllMethods()
-    policy.allowAllMethods()
+    if event["authorizationToken"] == "123456789":
+        policy.allowAllMethods()
+    else:
+        policy.denyAllMethods()
     # policy.allowMethod(HttpVerb.GET, "/hello/world/*")
 
     # Finally, build the policy
