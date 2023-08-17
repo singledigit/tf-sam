@@ -24,12 +24,5 @@ module "lambda_function_auth" {
   function_name = "http_authorizer"
   handler       = "app.handler"
   runtime       = "python3.9"
-  publish       = true
   create_sam_metadata = true
-  # allowed_triggers = {
-  #   APIGatewayAny = {
-  #     service    = "apigateway"
-  #     source_arn = "arn:aws:execute-api:${local.region}:${local.account_id}:${aws_api_gateway_rest_api.api.id}/*/*/*"
-  #   }
-  # }
 }
