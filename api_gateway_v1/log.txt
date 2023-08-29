@@ -1,0 +1,39 @@
+2023-08-29 15:53:27,895 | No config file found in this directory.
+2023-08-29 15:53:27,895 | OSError occurred while reading TOML file: [Errno 2] No such file or directory: '/Users/ericdj/Desktop/sam-tf-ga/api_gateway_v1/samconfig.toml'
+2023-08-29 15:53:27,895 | Config file location: /Users/ericdj/Desktop/sam-tf-ga/api_gateway_v1/samconfig.toml
+2023-08-29 15:53:27,895 | Config file '/Users/ericdj/Desktop/sam-tf-ga/api_gateway_v1/samconfig.toml' does not exist
+2023-08-29 15:53:27,895 | Looking for internal hook package
+2023-08-29 15:53:27,895 | Loaded internal hook package "terraform"
+2023-08-29 15:53:27,899 | Running Prepare Hook to prepare the current application
+2023-08-29 15:53:27,899 | Executing prepare hook of hook "terraform"
+2023-08-29 15:53:27,911 | Normalize the terraform application root module directory path /Users/ericdj/Desktop/sam-tf-ga/api_gateway_v1
+2023-08-29 15:53:27,911 | Normalize the project root directory path /Users/ericdj/Desktop/sam-tf-ga/api_gateway_v1
+2023-08-29 15:53:27,911 | Normalize the OutputDirPath /Users/ericdj/Desktop/sam-tf-ga/api_gateway_v1/.aws-sam-iacs/iacs_metadata
+2023-08-29 15:53:27,911 | Initializing Terraform application
+2023-08-29 15:53:28,112 | [0m[1mTerraform initialized in an empty directory![0m
+2023-08-29 15:53:28,112 | 
+2023-08-29 15:53:28,112 | The directory has no Terraform configuration files. You may begin working
+2023-08-29 15:53:28,112 | with Terraform immediately by creating Terraform configuration files.[0m
+
+2023-08-29 15:53:28,113 | Creating terraform plan and getting JSON output
+
+2023-08-29 15:53:28,145 | Using SAM Template at /Users/ericdj/Desktop/sam-tf-ga/api_gateway_v1/template.yml
+2023-08-29 15:53:28,161 | Telemetry endpoint configured to be https://aws-serverless-tools-telemetry.us-west-2.amazonaws.com/metrics
+2023-08-29 15:53:28,216 | Telemetry endpoint configured to be https://aws-serverless-tools-telemetry.us-west-2.amazonaws.com/metrics
+2023-08-29 15:53:28,216 | Sending Telemetry: {'metrics': [{'commandRun': {'requestId': '37e7c55c-4bd2-4a1e-9cee-96f085088a26', 'installationId': '03b8a3c0-f4d2-45c5-a78a-651ca8a18196', 'sessionId': '2e6cb7bd-988f-4ec1-87d1-5f49a157f09f', 'executionEnvironment': 'CLI', 'ci': False, 'pyversion': '3.11.4', 'samcliVersion': '1.95.0', 'awsProfileProvided': False, 'debugFlagProvided': True, 'region': '', 'commandName': 'sam build', 'metricSpecificAttributes': {'projectType': 'Terraform', 'hookPackageId': 'terraform', 'hookPackageVersion': '1.0.0', 'gitOrigin': None, 'projectName': '2cbff8c37935577f8e49300ea2770c62883eef145d4ac823ff044a24bf1b994c', 'initialCommit': None}, 'duration': 0, 'exitReason': 'PrepareHookException', 'exitCode': 1}}]}
+2023-08-29 15:53:28,216 | Unable to find Click Context for getting session_id.
+2023-08-29 15:53:28,217 | Sending Telemetry: {'metrics': [{'events': {'requestId': 'e017b44f-6474-40b8-8ad4-261aea871862', 'installationId': '03b8a3c0-f4d2-45c5-a78a-651ca8a18196', 'sessionId': '2e6cb7bd-988f-4ec1-87d1-5f49a157f09f', 'executionEnvironment': 'CLI', 'ci': False, 'pyversion': '3.11.4', 'samcliVersion': '1.95.0', 'metricSpecificAttributes': {'events': [{'event_name': 'SamConfigFileExtension', 'event_value': '.toml', 'thread_id': '867ce50c4dc04e7fbe3b2ccfc7045edf', 'time_stamp': '2023-08-29 21:53:27.895', 'exception_name': None}]}}}]}
+2023-08-29 15:53:28,435 | Telemetry response: 200
+Error: Error occurred when invoking a process:
+Failed to execute the subprocess. The process ['terraform', 'plan', '-out', '/var/folders/xv/w3qq49g53517p6m5j6wsb4mm0000gr/T/tmp9mctgt3j', '-input=false'] returned a non-zero exit code 1.
+╷
+│ Error: No configuration files
+│ 
+│ Plan requires configuration to be present. Planning without a configuration
+│ would mark everything for destruction, which is normally not what is
+│ desired. If you would like to destroy everything, run plan with the
+│ -destroy option. Otherwise, create a Terraform configuration file (.tf
+│ file) and try again.
+╵
+
+2023-08-29 15:53:28,443 | Telemetry response: 200

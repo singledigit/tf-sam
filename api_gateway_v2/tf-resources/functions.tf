@@ -2,7 +2,7 @@ module "lambda_function_responder" {
   source        = "terraform-aws-modules/lambda/aws"
   version       = "~> 6.0"
   timeout       = 300
-  source_path   = "${path.module}/src/responder/"
+  source_path   = "../src/responder/"
   function_name = "http_responder"
   handler       = "app.open_handler"
   runtime       = "python3.9"
@@ -20,7 +20,7 @@ module "lambda_function_auth" {
   source        = "terraform-aws-modules/lambda/aws"
   version       = "~> 6.0"
   timeout       = 300
-  source_path   = "${path.module}/src/auth/"
+  source_path   = "../src/auth/"
   function_name = "http_authorizer"
   handler       = "app.handler"
   runtime       = "python3.9"
